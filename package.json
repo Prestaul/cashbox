@@ -1,11 +1,11 @@
 {
   "name": "cashbox",
-  "version": "0.3.1",
+  "version": "1.0.0",
   "description": "javascript cache library with configurable storage",
   "main": "index.js",
   "browser": "browser.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha test/*.test.js"
+    "test": "mocha -R spec -s 2500 test/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -35,7 +35,9 @@
   "dependencies": {
     "deap": "~0.2.0",
     "timestr": "~0.1.0",
-    "redis": "~0.8.5"
+    "redis": "~0.8.5",
+    "memcached": "~0.2.6",
+    "async": "^0.9.0"
   },
   "devDependencies": {
     "async": "~0.2.9",
@@ -45,13 +47,15 @@
   "testling": {
     "browsers": [
       "ie/9..latest",
-      "firefox/19..latest",
-      "chrome/25..latest",
+      "firefox/latest",
+      "chrome/latest",
       "safari/latest",
-      "iphone/6",
-      "ipad/6"
+      "iphone/latest",
+      "ipad/latest"
     ],
     "harness": "mocha-tdd",
-    "files": "test/*.test.js"
+    "files": [
+      "test/cashbox.memory.test.js"
+    ]
   }
 }
